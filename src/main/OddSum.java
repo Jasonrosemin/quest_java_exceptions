@@ -9,13 +9,14 @@ public class OddSum {
     public static int run(String[] args, boolean test) {
 
         ArrayList<Integer> listInt = new ArrayList<>();
-        int res;
+        int res = 0;
         if (!test) {
             System.out.println("Elements' list :");
             for (String v : args)
                 System.out.print(" " + v);
             System.out.println();
         }
+        try {
         for (int i = 0; i < args.length; i++) {
             listInt.add(Integer.parseInt(args[i]));
         }
@@ -24,6 +25,11 @@ public class OddSum {
         if (test) {
             return res;
         }
+        }
+        catch (NumberFormatException e) {
+        	System.out.println(e.getMessage());
+        	return -1;
+        }
 
         System.out.println("Sum of odd elements : " + res);
         System.out.println("END!");
@@ -31,6 +37,7 @@ public class OddSum {
         return 0;
     }
 
+    
     public static int sum(ArrayList<Integer> listInt) {
 
         int result = 0;
